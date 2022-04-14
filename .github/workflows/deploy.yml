@@ -35,18 +35,8 @@ jobs:
       - name: Login
         run: echo "${{secrets.CT_PASSWORD}}" | ./supctl --host=${{secrets.CONTROL_TOWER}} do login ${{secrets.CT_USER}} > /dev/null
 
+      - name: Update application spec
+        run: ./supctl replace applications theater-room-manager < demo-specs/theater-room-manager.app.yml
 
-      # # Runs a set of commands using the runners shell
-      # - name: Run a multi-line script
-      #   run: |
-      #      # Install curl and download supctl
-      #     chmod +x supctl
-
-      #     # Login to the control tower, use Gitlab CI/CD variables
-
-      #     # Push changes
-      #     ./supctl replace applications theater-room-manager < demo-specs/theater-room-manager.app.yml
-      #     ./supctl replace application-deployments theater-room-manager-deployment < demo-specs/theater-room-manager.dep.yml
-
-      #     echo Add other actions to build,
-      #     echo test, and deploy your project.
+      - name: Update deployment spec
+        run: ./supctl replace application-deployments theater-room-manager-deployment < demo-specs/theater-room-manager.dep.yml
