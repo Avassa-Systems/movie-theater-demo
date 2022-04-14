@@ -15,7 +15,6 @@ services:
         image: "registry.gitlab.com/avassa-public/movie-theaters-demo/digital-assets-manager:v1.0"
         env:
           USERNAME: ${OPERATIONS_USERNAME}
-          APPROLE_SECRET_ID: "${SYS_APPROLE_SECRET_ID}"
         mounts:
           - volume-name: credentials
             mount-path: /credentials
