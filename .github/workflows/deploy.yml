@@ -36,7 +36,7 @@ jobs:
         run: echo "${{secrets.CT_PASSWORD}}" | ./supctl --host=${{secrets.CONTROL_TOWER}} do login ${{secrets.CT_USER}} > /dev/null
 
       - name: Update application spec
-        run: ./supctl replace applications theater-room-manager < demo-specs/theater-room-manager.app.yml
+        run: ./supctl replace applications theater-room-manager < theater-room-manager.app.yml
 
       - name: Update deployment spec
-        run: ./supctl replace application-deployments theater-room-manager-deployment < demo-specs/theater-room-manager.dep.yml
+        run: ./supctl replace application-deployments theater-room-manager-deployment < theater-room-manager.dep.yml
