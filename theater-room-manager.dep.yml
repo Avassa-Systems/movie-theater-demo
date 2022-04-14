@@ -1,0 +1,7 @@
+name: theater-room-manager-deployment
+application: theater-room-manager
+application-version: "1.0"
+
+placement:
+  match-site-labels: >
+    system/type = edge
