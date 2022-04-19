@@ -24,13 +24,12 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v3
-
-      - name: Get supctl
-        run: curl -sOf https://${{secrets.CONTROL_TOWER}}/supctl && chmod +x supctl
-
       - uses: actions/setup-python@v3
         with:
           python-version: '3.x'
+
+      - name: Get supctl
+        run: curl -sOf https://${{secrets.CONTROL_TOWER}}/supctl && chmod +x supctl
 
       - name: Login
         run: echo "${{secrets.CT_PASSWORD}}" | ./supctl --host=${{secrets.CONTROL_TOWER}} do login ${{secrets.CT_USER}} > /dev/null
