@@ -35,10 +35,10 @@ jobs:
         run: echo "${{secrets.CT_PASSWORD}}" | ./supctl --host=${{secrets.CONTROL_TOWER}} do login ${{secrets.CT_USER}} > /dev/null
 
       - name: Update vault
-        run: ./supctl replace strongbox vault operations < operations.yml
+        run: ./supctl replace strongbox vaults operations < operations.yml
 
       - name: Update credentials
-        run: ./supctl replace strongbox vault operations secrets credentials < credentials.yml
+        run: ./supctl replace strongbox vaults operations secrets credentials < credentials.yml
 
       - name: Update application spec
         run: ./supctl replace applications theater-room-manager < theater-room-manager.app.yml
