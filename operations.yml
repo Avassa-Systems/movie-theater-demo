@@ -1,0 +1,4 @@
+name: operations
+distribute:
+  deployments:
+    - theater-room-manager-deployment
