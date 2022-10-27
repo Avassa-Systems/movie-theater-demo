@@ -5,3 +5,9 @@ application-version: "1.0"
 placement:
   match-site-labels: >
     none
+deploy-to-sites:
+  canary-sites:
+    match-site-labels: country=Sweden
+  canary-healthy-time: 5s
+  sites-in-parallel: 2
+  healthy-time: 1s
