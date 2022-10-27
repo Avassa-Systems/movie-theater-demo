@@ -1,5 +1,5 @@
 name: theater-room-manager
-version: "1.0"
+version: "2.0"
 services:
   - name: theater-operations
     variables:
@@ -10,7 +10,7 @@ services:
           key: username
     containers:
       - name: projector-operations
-        image: "registry.gitlab.com/avassa-public/movie-theaters-demo/projector-operations:v1.0"
+        image: "registry.gitlab.com/avassa-public/movie-theaters-demo/projector-operations:v2.0"
       - name: digital-assets-manager
         image: "registry.gitlab.com/avassa-public/movie-theaters-demo/digital-assets-manager:v1.0"
         env:
