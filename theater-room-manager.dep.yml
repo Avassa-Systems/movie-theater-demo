@@ -1,7 +1,7 @@
 name: theater-room-manager-deployment
 application: theater-room-manager
-application-version: "1.0"
+application-version: "2.0"
 
 placement:
   match-site-labels: >
-    system/type = edge
+    size=large
