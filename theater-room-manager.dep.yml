@@ -4,7 +4,7 @@ application-version: "2.0"
 
 placement:
   match-site-labels: >
-    region=Europe and size=small
+    region=Europe and size=large
 deploy-to-sites:
   canary-sites:
     match-site-labels: country=Sweden
