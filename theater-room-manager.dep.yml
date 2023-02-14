@@ -1,12 +1,12 @@
 name: theater-room-manager-deployment
 application: theater-room-manager
 application-version: "1.0"
-
 placement:
-  match-site-labels: >
+  match-site-labels: |
     system/type=edge
+deploy-to-sites:
   canary-sites:
     match-site-labels: country=Sweden
-  canary-continue-by-action: true
   sites-in-parallel: 2
   healthy-time: 1s
+  canary-continue-by-action: true
