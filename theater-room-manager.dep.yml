@@ -4,9 +4,3 @@ application-version: "1.0"
 placement:
   match-site-labels: |
     region=Europe
-deploy-to-sites:
-  canary-sites:
-    match-site-labels: country=Sweden
-  sites-in-parallel: 2
-  healthy-time: 1s
-  canary-continue-by-action: true
