@@ -1,10 +1,6 @@
 name: theater-room-manager-deployment
 application: theater-room-manager
-application-version: "3.0"
+application-version: "1.0"
 placement:
   match-site-labels: |
     country=Sweden
-deploy-to-sites:
-  canary-sites:
-    match-site-labels: system/name=home-4
-  canary-continue-by-action: true
