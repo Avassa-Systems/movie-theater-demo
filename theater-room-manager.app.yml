@@ -32,6 +32,8 @@ services:
     mode: replicated
     replicas: 1
   - name: log-exporter
+    mode: replicated
+    replicas: 1
     variables:
       - name: AWS_ACCESS_KEY_ID
         value-from-vault-secret:
