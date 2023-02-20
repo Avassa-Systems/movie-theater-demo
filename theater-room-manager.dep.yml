@@ -3,7 +3,7 @@ application: theater-room-manager
 application-version: "1.0"
 placement:
   match-site-labels: |
-    system/name=home-office-2
+    system/name=bratislava
 deploy-to-sites:
   canary-sites:
     match-site-labels: country=Sweden
