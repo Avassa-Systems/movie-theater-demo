@@ -42,7 +42,7 @@ jobs:
       - name: Update credentials
         # run: ./supctl replace strongbox vaults operations secrets credentials < credentials.yml
         run:  cat credentials.yml 
-                | sed -e 's/AWS_ACCESS_KEY_ID_REP/${{secrets.AWS_ACCESS_KEY_ID}}/g' -e 's/AWS_SECRET_ACCESS_KEY_REP/${{secrets.AWS_SECRET_ACCESS_KEY}}/g0' 
+                | sed -e 's/AWS_ACCESS_KEY_ID_REP/${{secrets.AWS_ACCESS_KEY_ID}}/g' -e 's/AWS_SECRET_ACCESS_KEY_REP/${{secrets.AWS_SECRET_ACCESS_KEY}}/g' 
                 | ./supctl replace strongbox vaults operations secrets credentials
 
 
