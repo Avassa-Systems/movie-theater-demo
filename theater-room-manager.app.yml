@@ -31,3 +31,30 @@ services:
         image: "registry.gitlab.com/avassa-public/movie-theaters-demo/curtain-controller:v1.0"
     mode: replicated
     replicas: 1
+  - name: log-exporter
+    variables:
+      - name: AWS_ACCESS_KEY_ID
+        value-from-vault-secret:
+          vault: operations
+          secret: credentials
+          key: AWS-ACCESS-KEY-ID
+      - name: AWS_SECRET_ACCESS_KEY
+        value-from-vault-secret:
+          vault: operations
+          secret: credentials
+          key: AWS-SECRET-ACCESS-KEY
+    containers:
+      - name: fluent-bit
+        # You may want to consider locking this to a particual version in production
+        image: registry.gitlab.com/avassa-public/fluent-bit/fluent-bit:latest
+        approle: fluent-bit
+        mounts:
+          - volume-name: cfg
+            files:
+              - name: fluent-bit.conf
+                mount-path: /fluent-bit/etc/fluent-bit.conf
+        env:
+          APPROLE_SECRET_ID: "${SYS_APPROLE_SECRET_ID}"
+          AWS_ACCESS_KEY_ID: "${AWS_ACCESS_KEY_ID}"
+          AWS_SECRET_ACCESS_KEY: "${AWS_SECRET_ACCESS_KEY}"
+
