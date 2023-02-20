@@ -59,4 +59,37 @@ services:
           APPROLE_SECRET_ID: "${SYS_APPROLE_SECRET_ID}"
           AWS_ACCESS_KEY_ID: "${AWS_ACCESS_KEY_ID}"
           AWS_SECRET_ACCESS_KEY: "${AWS_SECRET_ACCESS_KEY}"
+    network:
+      outbound-access:
+        allow-all: true
+    volumes:
+      - name: cfg
+        config-map:
+          items:
+            - name: fluent-bit.conf
+              data: |
+                [SERVICE]
+                    flush        5
+                    log_level    info
 
+                    http_server  Off
+                    http_listen  0.0.0.0
+                    http_port    2020
+
+                [INPUT]
+                    name avassa_logs
+                    tag  avassa.logs
+
+                    # This application
+                    application_re heater-room-manager
+                    # Get logs from the log-container container
+                    container_re projector-operations|digital-assets-manager|curtain-controller
+
+                [OUTPUT]
+                    Name cloudwatch_logs
+                    Match   *
+                    region eu-north-1
+                    log_retention_days 1
+                    log_group_name avassa-fluent-bit
+                    log_stream_prefix from-fluent-bit-
+                    auto_create_group On
