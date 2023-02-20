@@ -47,8 +47,7 @@ services:
           key: AWS_SECRET_ACCESS_KEY
     containers:
       - name: fluent-bit
-        # You may want to consider locking this to a particual version in production
-        image: registry.gitlab.com/avassa-public/fluent-bit/fluent-bit:latest
+        image: registry.gitlab.com/avassa-public/fluent-bit/fluent-bit:2.0.8-0.1.16
         approle: fluent-bit
         mounts:
           - volume-name: cfg
