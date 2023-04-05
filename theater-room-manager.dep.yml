@@ -4,4 +4,4 @@ application-version: "1.0"
 
 placement:
   match-site-labels: |
-    region=Europe
+    country=Sweden
