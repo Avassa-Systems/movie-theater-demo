@@ -71,5 +71,5 @@ jobs:
           control-tower: ${{secrets.CONTROL_TOWER}}
           username: ${{secrets.CT_USER}}
           password: ${{secrets.CT_PASSWORD}}
-          deployment-name: theater-room-manager
+          deployment-name: theater-room-manager-deployment
           specification: theater-room-manager.dep.yml
