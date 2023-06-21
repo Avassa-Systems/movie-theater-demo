@@ -59,7 +59,7 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v3
-      - uses: /Avassa-Systems/github-actions@v1
+      - uses: /Avassa-Systems/application-action@v1
         with:
           control-tower: ${{secrets.CONTROL_TOWER}}
           username: ${{secrets.CT_USER}}
