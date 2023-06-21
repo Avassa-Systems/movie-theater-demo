@@ -60,3 +60,9 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v3
       - uses: /Avassa-Systems/github-actions@v1
+        with:
+          control-tower: ${{secrets.CONTROL_TOWER}}
+          username: ${{secrets.CT_USER}}
+          password: ${{secrets.CT_PASSWORD}}
+          application-name: theater-operations
+          specification: theater-room-manager.app.yaml
