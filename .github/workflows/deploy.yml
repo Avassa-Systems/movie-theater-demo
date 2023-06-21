@@ -65,4 +65,4 @@ jobs:
           username: ${{secrets.CT_USER}}
           password: ${{secrets.CT_PASSWORD}}
           application-name: theater-operations
-          specification: theater-room-manager.app.yaml
+          specification: theater-room-manager.app.yml
