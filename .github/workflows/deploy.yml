@@ -51,7 +51,7 @@ jobs:
 
   #     - name: Update deployment spec
   #       run: ./supctl replace application-deployments theater-room-manager-deployment < theater-room-manager.dep.yml
-  deploy:
+  application:
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
 
@@ -66,3 +66,18 @@ jobs:
           password: ${{secrets.CT_PASSWORD}}
           application-name: theater-room-manager
           specification: theater-room-manager.app.yml
+  deployment:
+    # The type of runner that the job will run on
+    runs-on: ubuntu-latest
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v3
+      - uses: /Avassa-Systems/deployment-action@v1
+        with:
+          control-tower: ${{secrets.CONTROL_TOWER}}
+          username: ${{secrets.CT_USER}}
+          password: ${{secrets.CT_PASSWORD}}
+          application-name: theater-room-manager
+          specification: theater-room-manager.dep.yml
