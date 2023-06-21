@@ -59,4 +59,4 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v3
-      - uses: /Avassa-Systems/github-actions/application
+      - uses: /Avassa-Systems/github-actions
